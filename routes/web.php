@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'ProdukController@index' );
+
+Route::post('/simpan-produk', 'ProdukController@simpanProduk');
