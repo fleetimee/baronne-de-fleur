@@ -13,7 +13,7 @@
             <div class="col-md-8 col-xl-6">
                 <h1>Form Input Produk</h1>
                 <hr>
-                @if ($errors->any())
+                {{-- @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul class="mb-0">
                             @foreach ($errors->all() as $error)
@@ -21,12 +21,15 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif		
+                @endif		 --}}
                 <form action="{{url('/simpan-produk')}}" method="POST">	
                     @csrf				
                     <div class="form-group">
                         <label for="nim">Nama Produk</label>
                         <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="{{ old('nama_produk') }}">
+                        @error('nama_produk')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="jurusan">Kategori Produk</label>
@@ -35,14 +38,23 @@
                             <option value="Fashion">Fashion</option>
                             <option value="Komputer">Komputer</option>                   
                         </select>
+                        @error('kategori')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="nama">Harga</label>
                         <input type="text" class="form-control" id="harga" name="harga" value="{{  old('harga') }}">
+                        @error('harga')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="email">Stok</label>
                         <input type="text" class="form-control" id="stok" name="stok">
+                        @error('stok')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label>Kondisi Barang</label>
@@ -58,10 +70,16 @@
                                 <label class="form-check-label" for="bekas">Bekas</label>
                             </div>
                         </div>
+                        @error('kondisi')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="alamat">Deskripsi Produk</label>
                         <textarea class="form-control" id="deskripsi" rows="3" name="deskripsi"></textarea>
+                        @error('deskripsi')
+                            <div class="text-danger">{{ $message }}</div>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Simpan</button>
                 </form>

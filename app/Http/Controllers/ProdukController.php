@@ -19,7 +19,7 @@ class ProdukController extends Controller
             'harga' => ' required|numeric',
             'stok' => 'required|numeric',
             'kondisi' => 'required|in:Y,N',
-            'deksripsi' => 'required'
+            'deskripsi' => 'required',
         ]);
     }
 }
