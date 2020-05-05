@@ -22,7 +22,7 @@
                         </ul>
                     </div>
                 @endif		 --}}
-                <form action="{{url('/simpan-produk')}}" method="POST">	
+                <form action="{{url('/store-produk')}}" method="POST">	
                     @csrf				
                     <div class="form-group">
                         <label for="nim">Nama Produk</label>

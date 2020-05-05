@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
 class ProdukController extends Controller
 {
@@ -11,7 +12,11 @@ class ProdukController extends Controller
         return view('produk');
     }
 
-    public function simpanProduk(Request $request)
+    public function create(){
+        return view('form-produk');
+    }
+
+    public function store(Request $request)
     {
         $dataValid = $request->validate([
             'nama_produk' => 'required',
@@ -20,6 +25,7 @@ class ProdukController extends Controller
             'stok' => 'required|numeric',
             'kondisi' => 'required|in:Y,N',
             'deskripsi' => 'required'],
+            
                 [
                     'nama_produk.required' => 'Nama produk harus diisi',
                     'kategori.required' => 'Kategori harus diisi',
@@ -31,5 +37,11 @@ class ProdukController extends Controller
                     'kondisi.in' => 'Kondisi hanya baru dan bekas',
                     'deskripsi.require' => 'Deskripsi harus diisi'
                 ]);
+        Product::create($dataValid);
+        return "Data Produk Berhasil Disimpan";
+    }
+
+    public function show() {
+
     }
 }
