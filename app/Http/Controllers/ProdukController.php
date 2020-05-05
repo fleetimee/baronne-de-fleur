@@ -39,7 +39,10 @@ class ProdukController extends Controller
                     'deskripsi.require' => 'Deskripsi harus diisi'
                 ]);
         Product::create($dataValid);
-        return "Data Produk Berhasil Disimpan";
+        
+        session()->flash('success', 'Data Berhasil Disimpan');
+
+        return redirect('/list-produk');
     }
 
     public function show() {

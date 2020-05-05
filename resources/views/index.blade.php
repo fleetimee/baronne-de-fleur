@@ -9,6 +9,11 @@
 </head>
 <body>
     <div class="container mt-3">
+        @if(session()->has('success'))
+            <div class="alert alert-success my-5">
+                {{ session()->get('success') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-12">
                 <div class="py-4 d-flex justify-content-end align-items-center">
