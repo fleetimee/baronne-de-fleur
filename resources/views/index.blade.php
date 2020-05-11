@@ -43,8 +43,14 @@
                             <td>{{$p->harga}}</td>
                             <td>{{$p->stok}}</td>
                             <td>{{$p->kondisi == 'Y'?'Baru':'Bekas'}}</td>
-                            <td><a href="{{ url('/show-produk/'.$p->id) }}" class="btn btn-primary">
-                                Detail</a></td>
+                            <td>
+                                <a href="{{ url('/show-produk/'.$p->id) }}" class="btn btn-primary">
+                                    Detail
+                                </a>
+                                <a href="{{ url('/edit-produk/'.$p->id) }}" class="btn btn-warning">
+                                    Edit
+                                </a>
+                            </td>
                         </tr>
                         @empty
                         <td colspan="6" class="text-center">Tidak ada data product</td>

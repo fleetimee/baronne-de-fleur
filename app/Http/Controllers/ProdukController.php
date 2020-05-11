@@ -45,8 +45,20 @@ class ProdukController extends Controller
         return redirect('/list-produk');
     }
 
-    public function show($produk) {
+    public function show($produk) 
+    {
         $result = Product::find($produk);
         return view('detail-produk', ['produk' => $result]);
+    }
+
+    public function edit($produk)
+    {
+        $result = Product::find($produk);
+        return view('edit-produk', ['produk' => $result]);
+    }
+
+    public function update()
+    {
+        
     }
 }

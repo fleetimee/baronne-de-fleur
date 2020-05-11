@@ -19,4 +19,8 @@ Route::get('/list-produk', 'ProdukController@index');
 Route::post('/store-produk', 'ProdukController@store');
 
 Route::get('/create-produk', 'ProdukController@create');
+
 Route::get('/show-produk/{product}', 'ProdukController@show');
+
+Route::get('/edit-produk/{product}', 'ProdukController@edit');
+
