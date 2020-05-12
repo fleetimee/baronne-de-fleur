@@ -22,7 +22,8 @@
                         </ul>
                     </div>
                 @endif		 --}}
-                <form action="#" method="POST">	
+                <form action=" {{ url('/update-produk') }}" method="POST">	
+                    <input type="hidden" name="id" value="{{ $produk->id }}">
                     @csrf				
                     <div class="form-group">
                         <label for="nim">Nama Produk</label>
@@ -66,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Stok</label>
-                        <input type="text" class="form-control" id="stok" name="stok" value="{{ $produk->nama_produk }}"">
+                        <input type="text" class="form-control" id="stok" name="stok" value="{{ $produk->stok }}"">
                         @error('stok')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror

@@ -57,8 +57,20 @@ class ProdukController extends Controller
         return view('edit-produk', ['produk' => $result]);
     }
 
-    public function update()
+    public function update(Request $request)
     {
-        
+        $dataValid = $request->validate([
+            'nama_produk' => 'required',
+            'kategori' => 'required',
+            'harga' => ' required|numeric',
+            'stok' => 'required|numeric',
+            'kondisi' => 'required|in:Y,N',
+            'deskripsi' => 'required',
+            ]);
+        Product::where('id', $request->id)->update($dataValid);
+
+        session()->flash('success', 'Data Berhasil Diubah');
+
+        return redirect('/list-produk');
     }
 }

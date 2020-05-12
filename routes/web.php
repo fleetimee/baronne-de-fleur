@@ -24,3 +24,4 @@ Route::get('/show-produk/{product}', 'ProdukController@show');
 
 Route::get('/edit-produk/{product}', 'ProdukController@edit');
 
+Route::post('/update-produk', 'ProdukController@update');
