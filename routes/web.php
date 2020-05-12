@@ -24,4 +24,7 @@ Route::get('/show-produk/{product}', 'ProdukController@show');
 
 Route::get('/edit-produk/{product}', 'ProdukController@edit');
 
+Route::get('/delete-produk/{product}', 'ProdukController@delete');
+
 Route::post('/update-produk', 'ProdukController@update');
+

@@ -73,4 +73,14 @@ class ProdukController extends Controller
 
         return redirect('/list-produk');
     }
+
+    public function delete($produk)
+    {
+        $result = Product::find($produk);
+        $result->delete();
+
+        session()->flash('success', 'Data Berhasil Dihapus');
+
+        return redirect('/list-produk');
+    }
 }

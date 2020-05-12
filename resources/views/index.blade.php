@@ -31,7 +31,7 @@
                             <th>Harga</th>
                             <th>Stok</th>
                             <th>Kondisi</th>
-                            <th>Aksi</th>
+                            <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -43,12 +43,15 @@
                             <td>{{$p->harga}}</td>
                             <td>{{$p->stok}}</td>
                             <td>{{$p->kondisi == 'Y'?'Baru':'Bekas'}}</td>
-                            <td>
+                            <td class="text-center">
                                 <a href="{{ url('/show-produk/'.$p->id) }}" class="btn btn-primary">
                                     Detail
                                 </a>
                                 <a href="{{ url('/edit-produk/'.$p->id) }}" class="btn btn-warning">
                                     Edit
+                                </a>
+                                <a href="{{ url('/delete-produk/'.$p->id) }}" class="btn btn-danger">
+                                    Hapus
                                 </a>
                             </td>
                         </tr>
